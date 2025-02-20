@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estimation Prix Échange iPhone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        select, input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Estimation Prix Échange iPhone</h1>
+        <label for="model">Modèle d'iPhone :</label>
+        <select id="model">
+            <option value="iPhone 13 Pro Max">iPhone 13 Pro Max</option>
+            <option value="iPhone 13 Pro">iPhone 13 Pro</option>
+            <option value="iPhone 13">iPhone 13</option>
+            <option value="iPhone 12 Pro Max">iPhone 12 Pro Max</option>
+            <option value="iPhone 12 Pro">iPhone 12 Pro</option>
+            <option value="iPhone 12">iPhone 12</option>
+            <option value="iPhone 11 Pro Max">iPhone 11 Pro Max</option>
+            <option value="iPhone 11 Pro">iPhone 11 Pro</option>
+            <option value="iPhone 11">iPhone 11</option>
+            <option value="iPhone XS Max">iPhone XS Max</option>
+            <option value="iPhone XS">iPhone XS</option>
+            <option value="iPhone XR">iPhone XR</option>
+            <option value="iPhone X">iPhone X</option>
+            <option value="iPhone 8 Plus">iPhone 8 Plus</option>
+            <option value="iPhone 8">iPhone 8</option>
+            <option value="iPhone 7 Plus">iPhone 7 Plus</option>
+            <option value="iPhone 7">iPhone 7</option>
+            <option value="iPhone 6s Plus">iPhone 6s Plus</option>
+            <option value="iPhone 6s">iPhone 6s</option>
+            <option value="iPhone SE (2020)">iPhone SE (2020)</option>
+        </select>
+
+        <label for="etat">État de l'appareil :</label>
+        <select id="etat">
+            <option value="excellent">Excellent</option>
+            <option value="bon">Bon</option>
+            <option value="moyen">Moyen</option>
+            <option value="mauvais">Mauvais</option>
+        </select>
+
+        <button onclick="calculerPrix()">Estimer le Prix</button>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        const prixBase = {
+            "iPhone 13 Pro Max": 800,
+            "iPhone 13 Pro": 750,
+            "iPhone 13": 700,
+            "iPhone 12 Pro Max": 650,
+            "iPhone 12 Pro": 600,
+            "iPhone 12": 550,
+            "iPhone 11 Pro Max": 500,
+            "iPhone 11 Pro": 450,
+            "iPhone 11": 400,
+            "iPhone XS Max": 350,
+            "iPhone XS": 300,
+            "iPhone XR": 250,
+            "iPhone X": 200,
+            "iPhone 8 Plus": 150,
+            "iPhone 8": 100,
+            "iPhone 7 Plus": 80,
+            "iPhone 7": 60,
+            "iPhone 6s Plus": 50,
+            "iPhone 6s": 40,
+            "iPhone SE (2020)": 200,
+        };
+
+        const coefficientsEtat = {
+            "excellent": 1.0,
+            "bon": 0.8,
+            "moyen": 0.5,
+            "mauvais": 0.3,
+        };
+
+        function calculerPrix() {
+            const modele = document.getElementById("model").value;
+            const etat = document.getElementById("etat").value;
+
+            const prix = prixBase[modele] * coefficientsEtat[etat];
+            document.getElementById("result").innerText = `Prix estimé : ${prix.toFixed(2)} €`;
+        }
+    </script>
+</body>
+</html>
